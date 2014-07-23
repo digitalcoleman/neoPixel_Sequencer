@@ -201,7 +201,7 @@ void saveSeq() {
     frame = frame.substring( 0, frame.length()-1 );
     frames[x] = frame + "},";
   }
-  
+  frames[SEQUENCE_LENGTH-1] = frames[SEQUENCE_LENGTH-1].substring( 0, frames[SEQUENCE_LENGTH-1].length()-1 );
   saveStrings("ledSequence.txt", frames);
 }
 
