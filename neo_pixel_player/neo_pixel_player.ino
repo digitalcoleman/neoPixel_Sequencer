@@ -15,7 +15,7 @@ struct led{
 
 //load the sequence into PROGMEM because otherwise it overloads RAM
 const byte ledSeq [16][LED_QUANTITY][3] PROGMEM = {
-//paste contents of the txt file here. !!important!! remove the final comma!
+//paste contents of the txt file from the sequencer here.
 };
 
 
