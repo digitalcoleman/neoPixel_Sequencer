@@ -6,7 +6,7 @@ class ColorMatrix extends Matrix {
     super(cp5, theName);
 
     setView(new ControllerView() {
-      void display(PApplet p, Object b) {
+      void display(PGraphics p, Object b) {
         p.noStroke();
         p.fill(bkg);
         p.rect(0, 0, width, height);
@@ -22,8 +22,8 @@ class ColorMatrix extends Matrix {
           }
         }
         if (isInside()) {
-          int x = (int) ((p.mouseX - position.x) / stepX);
-          int y = (int) ((p.mouseY - position.y) / stepY);
+          int x = (int) ((mouseX - getPosition()[0]) / stepX);
+          int y = (int) ((mouseY - getPosition()[1]) / stepY);
           if (x >= 0 && x < _myCellX && y >= 0 && y < _myCellY) {
             p.fill(_myCells[x][y] == 1 ? -0.2 : -0.5);
             p.rect(x * stepX, y * stepY, stepX - gapX, stepY - gapY);
@@ -40,8 +40,8 @@ class ColorMatrix extends Matrix {
     _myCellX = theCellX;
     _myCellY = theCellY;
     sum = _myCellX * _myCellY;
-    stepX = width / _myCellX;
-    stepY = height / _myCellY;
+    stepX = getWidth() / _myCellX;
+    stepY = getHeight() / _myCellY;
     _myCells = new int[_myCellX][_myCellY];
     _myCellColor = new int[_myCellX][_myCellY];
     for (int x = 0; x < _myCellX; x++) {
@@ -84,4 +84,3 @@ class ColorMatrix extends Matrix {
     return this;
   }
 }
-

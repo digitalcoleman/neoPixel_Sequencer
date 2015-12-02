@@ -236,4 +236,3 @@ void Number_of_LEDs(int newled) {
     cp5.get(ColorMatrix.class, "LED_sequence").setGrid(SEQUENCE_LENGTH, NUMBER_OF_LED);
   }
 }
-
